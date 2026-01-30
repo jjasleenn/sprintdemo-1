@@ -1,4 +1,4 @@
-import "./AssignmentList.css";
+import "./Assignment-list.css";
 
 const AssignmentList = () => {
   const assignments = [
