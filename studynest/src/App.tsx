@@ -1,4 +1,4 @@
-import  AssignmentList from "./components/assignment-list/Assignment-list";
+import  AssignmentList from "./components/assignment-list/AssignmentList";
 import "./App.css";
 
 function App() {
