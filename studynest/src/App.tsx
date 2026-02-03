@@ -11,6 +11,7 @@ function App() {
       <main>
         <AssignmentList />
         {/* Other teammates' components will be added here */}
+    
       </main>
 
       <footer>
