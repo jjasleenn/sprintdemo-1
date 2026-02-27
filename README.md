@@ -6,6 +6,12 @@ The project is aimed at illustrating component based architecture, user accessib
  
 ---
  
+ ## Team Members
+ 
+- Devansh Garg  
+- Mankirt Bajwa  
+- Jasleen Kaur  
+
 ## How the Application Works
  
 This stage offers the product's basic functionalities.<|human|>Present Functionality (Sprint 1) This step contains the fundamental functionality of the product.

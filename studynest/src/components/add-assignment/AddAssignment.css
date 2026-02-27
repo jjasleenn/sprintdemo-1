@@ -1,0 +1,25 @@
+.add-assignment {
+  border: 1px solid #ccc;
+  padding: 1.5rem;
+  margin: 1rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+.add-assignment form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-assignment input {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
+.add-assignment button {
+  padding: 0.6rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
