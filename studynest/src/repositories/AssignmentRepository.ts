@@ -1,4 +1,4 @@
-import { Assignment } from "../types/Assignment";
+import type  { Assignment } from "../types/Assignment";
 import { assignmentTestData } from "../data/assignmentTestData";
 
 class AssignmentRepository {

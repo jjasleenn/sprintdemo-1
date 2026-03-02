@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Assignment } from "../types/Assignment";
+import type { Assignment } from "../types/Assignment";
 import { assignmentService } from "../services/AssignmentService";
 
 export const useAssignments = () => {

@@ -1,4 +1,4 @@
-import { Course } from "../types/Course";
+import type { Course } from "../types/Course";
 
 export const courseTestData: Course[] = [
   { id: 1, name: "Mathematics", instructor: "Dr. Smith", credits: 3 },

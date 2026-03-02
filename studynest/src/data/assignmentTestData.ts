@@ -1,4 +1,4 @@
-import { Assignment } from "../types/Assignment";
+import type { Assignment } from "../types/Assignment";
 
 export const assignmentTestData: Assignment[] = [
   { id: 1, title: "Math Homework 1", course: "Math", dueDate: "2026-03-10", completed: false },
