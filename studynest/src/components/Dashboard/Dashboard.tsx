@@ -1,6 +1,10 @@
 import "./Dashboard.css";
+import { useDashboardStats } from "../../hooks/useDashboardStats";
 
 const Dashboard = () => {
+
+  const { total, completed, pending } = useDashboardStats();
+  
   return (
     <section className="dashboard">
       <h1>StudyNest Dashboard</h1>
@@ -9,17 +13,17 @@ const Dashboard = () => {
       <div className="dashboard-cards">
         <div className="card">
           <h3>Total Assignments</h3>
-          <p>3</p>
+          <p>{total}</p>
         </div>
 
         <div className="card">
           <h3>In Progress</h3>
-          <p>1</p>
+          <p>{pending}</p>
         </div>
 
         <div className="card">
           <h3>Completed</h3>
-          <p>1</p>
+          <p>{completed}</p>
         </div>
       </div>
     </section>
