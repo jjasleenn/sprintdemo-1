@@ -1,25 +1,29 @@
-import { Course } from "../types/Course";
+import type { Course } from "../types/Course";
 import { CourseRepository } from "../repositories/CourseRepository";
 
 export class CourseService {
   private repo = new CourseRepository();
 
-  getCourses(): Course[] {
-    return this.repo.getAll();
+  async getCourses(): Promise<Course[]> {
+    return await this.repo.getAll();
   }
 
-  addCourse(name: string, instructor: string, credits: number): Course {
+  async addCourse(
+    name: string,
+    instructor: string,
+    credits: number
+  ): Promise<Course> {
     const newCourse: Course = {
       id: Date.now(),
       name,
       instructor,
-      credits
+      credits,
     };
 
-    return this.repo.create(newCourse);
+    return await this.repo.create(newCourse);
   }
 
-  deleteCourse(id: number): void {
-    this.repo.delete(id);
+  async deleteCourse(id: number): Promise<void> {
+    await this.repo.delete(id);
   }
 }

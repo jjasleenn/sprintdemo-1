@@ -1,26 +1,27 @@
 import type { Assignment } from "../types/Assignment";
-import { assignmentRepository } from "../repositories/AssignmentRepository";
+import { AssignmentRepository } from "../repositories/AssignmentRepository";
 
 class AssignmentService {
+  private repo = new AssignmentRepository();
 
-  getAssignments(): Assignment[] {
-    return assignmentRepository.getAll();
+  async getAssignments(): Promise<Assignment[]> {
+    return await this.repo.getAll();
   }
 
-  toggleComplete(id: number): void {
-    const assignment = assignmentRepository.getById(id);
+  async toggleComplete(id: number): Promise<void> {
+    const assignment = await this.repo.getById(id);
     if (assignment) {
       assignment.completed = !assignment.completed;
-      assignmentRepository.update(assignment);
+      await this.repo.update(assignment);
     }
   }
 
-  addAssignment(assignment: Assignment): void {
-    assignmentRepository.create(assignment);
+  async addAssignment(assignment: Assignment): Promise<void> {
+    await this.repo.create(assignment);
   }
 
-  deleteAssignment(id: number): void {
-    assignmentRepository.delete(id);
+  async deleteAssignment(id: number): Promise<void> {
+    await this.repo.delete(id);
   }
 }
 

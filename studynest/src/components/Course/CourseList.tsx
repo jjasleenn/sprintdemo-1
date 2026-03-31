@@ -1,13 +1,11 @@
 import { useCourses } from "../../hooks/useCourses";
 
-/**
- * CourseList Component
- * 
- * Uses the useCourses hook to retrieve and manage courses.
- * Business logic is handled in the service layer.
- */
 const CourseList = () => {
-  const { courses, deleteCourse } = useCourses();
+  const { courses, deleteCourse, loading } = useCourses();
+
+  if (loading) {
+    return <p>Loading courses...</p>;
+  }
 
   return (
     <section>
