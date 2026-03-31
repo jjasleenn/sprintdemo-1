@@ -1,30 +1,39 @@
 import type  { Assignment } from "../types/Assignment";
-import { assignmentTestData } from "../data/assignmentTestData";
-
-class AssignmentRepository {
-  private assignments: Assignment[] = [...assignmentTestData];
-
-  getAll(): Assignment[] {
-    return this.assignments;
+ 
+export class AssignmentRepository {
+  async getAll(): Promise<Assignment[]> {
+    const res = await fetch("http://localhost:3000/assignments");
+    return res.json();
   }
-
-  getById(id: number): Assignment | undefined {
-    return this.assignments.find(a => a.id === id);
+ 
+  async getById(id: number): Promise<Assignment> {
+    const res = await fetch(`http://localhost:3000/assignments/${id}`);
+    return res.json();
   }
-
-  create(assignment: Assignment): void {
-    this.assignments.push(assignment);
+ 
+  async create(assignment: Assignment): Promise<void> {
+    await fetch("http://localhost:3000/assignments", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(assignment),
+    });
   }
-
-  update(updated: Assignment): void {
-    this.assignments = this.assignments.map(a =>
-      a.id === updated.id ? updated : a
-    );
+ 
+  async update(assignment: Assignment): Promise<void> {
+    await fetch(`http://localhost:3000/assignments/${assignment.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(assignment),
+    });
   }
-
-  delete(id: number): void {
-    this.assignments = this.assignments.filter(a => a.id !== id);
+ 
+  async delete(id: number): Promise<void> {
+    await fetch(`http://localhost:3000/assignments/${id}`, {
+      method: "DELETE",
+    });
   }
 }
-
-export const assignmentRepository = new AssignmentRepository();

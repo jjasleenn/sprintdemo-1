@@ -3,8 +3,10 @@ import { useDashboardStats } from "../../hooks/useDashboardStats";
 
 const Dashboard = () => {
 
-  const { total, completed, pending } = useDashboardStats();
-  
+  const { total, completed, pending, loading} = useDashboardStats();
+
+   if (loading) return <p>Loading...</p>;
+
   return (
     <section className="dashboard">
       <h1>StudyNest Dashboard</h1>
