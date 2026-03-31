@@ -11,8 +11,8 @@ export const useDashboardStats = () => {
     pending: 0,
   });
   const service = new DashboardService();
-
-    const [loading, setLoading] = useState(true);
+  
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadStats = async () => {
@@ -33,6 +33,6 @@ export const useDashboardStats = () => {
 
     fetchStats();
   }, [assignments]);
-
+ 
   return { ...stats, loading };
 };
