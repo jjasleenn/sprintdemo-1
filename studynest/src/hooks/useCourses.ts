@@ -1,28 +1,37 @@
 import { useState, useEffect } from "react";
-import { Course } from "../types/Course";
+import type { Course } from "../types/Course";
 import { CourseService } from "../services/CourseService";
 
 export const useCourses = () => {
   const service = new CourseService();
   const [courses, setCourses] = useState<Course[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  const loadCourses = async () => {
+    setLoading(true);
+    const data = await service.getCourses();
+    setCourses(data);
+    setLoading(false);
+  };
 
   useEffect(() => {
-    setCourses(service.getCourses());
+    loadCourses();
   }, []);
 
-  const refresh = () => {
-    setCourses(service.getCourses());
+  const addCourse = async (name: string, instructor: string, credits: number) => {
+    await service.addCourse(name, instructor, credits);
+    await loadCourses();
+  };
+
+  const deleteCourse = async (id: number) => {
+    await service.deleteCourse(id);
+    await loadCourses();
   };
 
   return {
     courses,
-    addCourse: (name: string, instructor: string, credits: number) => {
-      service.addCourse(name, instructor, credits);
-      refresh();
-    },
-    deleteCourse: (id: number) => {
-      service.deleteCourse(id);
-      refresh();
-    }
+    loading,
+    addCourse,
+    deleteCourse,
   };
 };
