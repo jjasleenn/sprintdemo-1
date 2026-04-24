@@ -1,0 +1,21 @@
+## Local Setup
+
+### Backend
+cd backend
+npm install
+npx prisma migrate dev
+npm run dev
+
+### Frontend
+cd studynest
+npm install
+npm run dev
+
+### Environment Variables
+
+Backend:
+CLERK_SECRET_KEY=...
+DATABASE_URL=...
+
+Frontend:
+VITE_CLERK_PUBLISHABLE_KEY=...
