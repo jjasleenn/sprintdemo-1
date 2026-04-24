@@ -31,6 +31,7 @@ export const useCourses = () => {
   return {
     courses,
     loading,
+    setCourses,
     addCourse,
     deleteCourse,
   };
