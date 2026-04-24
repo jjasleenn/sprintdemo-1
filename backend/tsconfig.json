@@ -2,7 +2,7 @@
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
     // File Layout
-    // "rootDir": "./src",
+    // "rootDir": ".",
     // "outDir": "./dist",
 
     // Environment Settings
@@ -11,6 +11,7 @@
     "target": "esnext",
     "types": [],
     "esModuleInterop": true,
+    "ignoreDeprecations": "6.0",
     "moduleResolution": "node",
     // For nodejs:
     // "lib": ["esnext"],
@@ -40,6 +41,6 @@
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
-    "skipLibCheck": true,
+    "skipLibCheck": true
   }
 }
