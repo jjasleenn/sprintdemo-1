@@ -17,6 +17,7 @@ model Course {
   name       String
   instructor String
   credits    Int
+  userId     String
 }
 
 model Assignment {
@@ -25,4 +26,5 @@ model Assignment {
   course    String
   dueDate   String
   completed Boolean
+  userId     String
 }
