@@ -1,8 +1,5 @@
 ## Local Setup
 
-## Requirements
-
-
 ### Backend
 cd backend
 npm install
